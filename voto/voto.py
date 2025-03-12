@@ -6,14 +6,14 @@ import flet
 cfuTot = 180
 
 
-@dataclass(order=True)
+@dataclass(order=True) #instanza tutti i metodi minimi
 class Voto:
-    materia: str
+    materia: str   #il tipo serve solo per l'editor che ci suggerisce che tipo di dato inserire
     punteggio: int
     data: str
     lode: bool
-
-    def __str__(self):
+#dataclass crea automaticamente il costruttore con questi parametri e tutti i metodi base
+    def __str__(self): #overrides lo str fatto da dataclass
         if self.lode:
             return f"In {self.materia} hai preso {self.punteggio} e lode il {self.data}"
         else:
@@ -45,10 +45,10 @@ class Libretto:
     def __str__(self):
         mystr = f"Libretto voti di {self.proprietario} \n"
         for v in self.voti:
-            mystr += f"{v} \n"
+            mystr += f"{v} \n" #delego la costruzione della stringa
         return mystr
 
-    def __len__(self):
+    def __len__(self): #quanti elementi ha la lista voti
         return len(self.voti)
 
     def calcolaMedia(self):

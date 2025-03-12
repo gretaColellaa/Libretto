@@ -1,3 +1,5 @@
 flet~=0.27.5
 mysql
-networkx
+
+
+#questo file elenca le librerie che utilizziamo nel progetto

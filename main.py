@@ -116,8 +116,8 @@ for p in personaggi:
     #     corvonero.addStudente(p)
     # if p.casa == serpeverde.nome & isinstance(p, Student):
     #     serpeverde.addStudente(p)
-    if isinstance(p,Student):
-        match p.casa:
+    if isinstance(p,Student): #controllo che p sia studente
+        match p.casa:  #match
             case "Grifondoro":
                 grifondoro.addStudente(p)
             case "Tassorosso":

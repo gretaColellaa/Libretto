@@ -2,12 +2,12 @@ class Person:
     def __init__(self, nome, cognome, eta,
                  capelli, occhi, casa, incantesimo="Non ancora definito"):
         self.nome = nome
-        self._cognome = cognome
+        self._cognome = cognome #un modo per dire che la vorrei privata, non significa che non è accessibile
         self.eta = eta
         self.capelli = capelli
         self.occhi = occhi
         self.casa = casa
-        self.__prova = None
+        self.__prova = None  #cerca di camuffarlo e lo rinomina come _Person__prova così che non ci si accede per sbaglio
         self.incantesimo = incantesimo
 
     def __str__(self):
@@ -32,7 +32,7 @@ class Student(Person):
     def __str__(self):
         return f"Student: {self.nome} - {self._cognome} - {self.casa} \n "
 
-    def __repr__(self):
+    def __repr__(self): #rappresentazione a stringa dell'oggetto
         return f"Student(nome, cognome, eta, capelli, occhi, casa, animale)"
 
     def prettyPrint(self):
@@ -74,7 +74,7 @@ class Casa:
 class Scuola:
     def __init__(self, case):
         self.case = case
-    def __str__(self):
+    def __str__(self):  #riutilizzo il metodo che esiste già nella classe casa
         mystr = ""
         for c in self.case:
             mystr += str(c)
