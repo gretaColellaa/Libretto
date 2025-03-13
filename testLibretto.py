@@ -11,7 +11,7 @@ v2 = Voto("Babbanologia", 21, "2022-02-12", False)
 mylib.append(v1)
 mylib.append(v2)
 
-mylib.append(Voto("Pozioni", 21, "2022-06-14", False))
+mylib.append(Voto("Pozioni", 21, "2022-06-14", False)) #meglio usare questo metodo e non creare troppe variabili poi inutili
 mylib.append(Voto("Trasfigurazione", 21, "2022-06-14", False))
 
 mylib.calcolaMedia()

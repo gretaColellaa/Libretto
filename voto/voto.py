@@ -64,7 +64,7 @@ class Libretto:
         if len(self.voti) == 0:
             raise ValueError("Attenzione, lista esami vuota.")
 
-        v = [v1.punteggio for v1 in self.voti]
+        v = [v1.punteggio for v1 in self.voti] #sintassi semplificata per fare il ciclo che aggiunge elementi alla lista
         return sum(v) / len(v)
         # return math.mean(v)
 
@@ -77,9 +77,9 @@ class Libretto:
         """
         votiFiltrati = []
         for v in self.voti:
-            if v.punteggio == punti and v.lode == lode:
+            if v.punteggio == punti and v.lode == lode: #essendo dataclass __eq__ è già definita per voto
                 votiFiltrati.append(v)
-        return votiFiltrati
+        return votiFiltrati #mi usa il __repr__ che ha autoimplementato in quanto è una lista
 
     def getVotoByName(self, nome):
         """
@@ -105,7 +105,7 @@ class Libretto:
             # modo numero 1
             # if v == voto:
             # pass
-            if (v.materia == voto.materia and
+            if (v.materia == voto.materia and #cosi si procede con la verifica dei campi
                     v.punteggio == voto.punteggio and
                     v.lode == voto.lode):
                 return True
@@ -130,11 +130,11 @@ class Libretto:
     def copy(self):
         """
         crea una nuova copia del libretto
-        :return: istanza della calsse Libretto
+        :return: istanza della classe Libretto
         """
         nuovo = Libretto(self.proprietario.copy(), [])
         for v in self.voti:
-            nuovo.append(v.copy())
+            nuovo.append(v.copy()) #i metodi copy e append riscritti nella classe libretto, appendo la COPIA del voto
         return nuovo
 
     def creaMigliorato(self):
@@ -147,7 +147,7 @@ class Libretto:
         se il voto è 30 rimane 30
         :return: nuovo libretto
         """
-        nuovo = self.copy()
+        nuovo = self.copy() #la copy della classe libretto che utilizza in essa la copy della classe voto
         # modifico i voti in nuovo
         for v in nuovo.voti:
             if 18 <= v.punteggio < 24:
@@ -186,8 +186,8 @@ class Libretto:
         :return: nuova istanza dell'oggetto Libretto
         """
         nuovo = self.copy()
-        nuovo.voti.sort(key=lambda v: (v.punteggio, v.lode),
-                        reverse=True)
+        nuovo.voti.sort(key=lambda v: (v.punteggio, v.lode), #crea una tupla con i valori che specifico, e li ordina (True > False) python sa farlo da se
+                        reverse=True) #operator.attrgetter prenderebbe solo il punteggio, a me serve considerare anche la lode
         return nuovo
 
     def cancellaInferiori(self, punteggio):
@@ -205,6 +205,7 @@ class Libretto:
         # T=1 -- [18 18 26 27 28]
         # T=2 -- [18 26 27 28]
         # out -- [18 26 27 28]
+        #NON SI TOLGONO ELEMENTI DELLA LISTA CHE STO CICLANDO
 
         # Modo 2
         # for v in self.voti:
@@ -219,7 +220,7 @@ class Libretto:
         # self.voti = nuovo
 
         self.voti = [v for v in self.voti if v.punteggio >= punteggio]
-
+        #
 
 def estraiMateria(voto):
     """
