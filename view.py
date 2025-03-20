@@ -2,7 +2,7 @@ import datetime
 
 import flet as ft
 
-
+#qui vanno creati tutti gli elementi visibili, che poi gestirà controller
 class View:
     def __init__(self, page: ft.Page):
         self._txtOut = None
@@ -41,7 +41,7 @@ class View:
         )
         self._fillDDVoto()
 
-        self._dp = ft.DatePicker(
+        self._dp = ft.DatePicker(  #il calendario che si apre per selezionare la data
             first_date=datetime.datetime(2022, 1, 1),
             last_date=datetime.datetime(2026, 12, 31),
             on_change=lambda e: print(f"Giorno selezionato: {self._dp.value}"),
@@ -49,7 +49,7 @@ class View:
         )
         self._btnCal = ft.ElevatedButton("Pick date",
                                          icon=ft.Icons.CALENDAR_MONTH,
-                                         on_click=lambda _: self._page.open(self._dp))
+                                         on_click=lambda _: self._page.open(self._dp))  #open apre il dp
 
         self._btnAdd = ft.ElevatedButton("Aggiungi",
                                          on_click=self._controller.handleAggiungi)

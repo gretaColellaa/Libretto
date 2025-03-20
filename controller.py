@@ -3,6 +3,8 @@ from view import View
 from voto.voto import Libretto, Voto
 import flet as ft
 
+
+#gestisce tutti gli elementi della view
 class Controller:
     def __init__(self, v: View):
         self._view = v
@@ -10,7 +12,7 @@ class Controller:
                 "castani", "Grifondoro", "civetta",
                 "Expecto Patronum")
         self._model = Libretto(self._student, [])
-        self._fillLibretto()
+        self._fillLibretto() #funzione che riempie il libretto appena creato
 
     def handleAggiungi(self, e):
         #Raccoglie tutte le info per creare un nuovo voto
@@ -38,7 +40,7 @@ class Controller:
             return
 
         if punti == "30L":
-            self._model.append(Voto(nome, 30, f"{data.year}-{data.month}-{data.day}", True))
+            self._model.append(Voto(nome, 30, f"{data.year}-{data.month}-{data.day}", True)) #appendo direttamente il voto nel libretto
         else:
             self._model.append(Voto(nome, int(punti), f"{data.year}-{data.month}-{data.day}", False))
 
