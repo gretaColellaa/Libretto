@@ -1,5 +1,5 @@
 from scuola import Student
-from voto.voto import Libretto, Voto
+from voto.modello import Libretto, Voto
 
 Harry = Student("Harry", "Potter", 11, "castani",
                 "castani", "Grifondoro", "civetta",

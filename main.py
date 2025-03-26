@@ -5,7 +5,7 @@ from scuola import Student, Teacher, Casa, Scuola, Person
 # nome del modulo "voto", e poi accedo alle varie
 # classi con la notazione voto.Voto, voto.Libretto
 
-from voto.voto import Voto, Libretto
+from voto.modello import Voto, Libretto
 
 import sys
 import flet
