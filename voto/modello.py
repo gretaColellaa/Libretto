@@ -12,11 +12,11 @@ class Libretto:
     def __init__(self, proprietario, voti=[]):
         self.proprietario = proprietario
         self.voti = voti
-        self.dao = LibrettoDAO()
-        self.fillLibretto()
+        self.dao = LibrettoDAO() #nel modello creo un'istanza del dao
+        self.fillLibretto() #riempio il libretto con la funzione direttamente nel costruttore
 
     def fillLibretto(self):
-        allEsami = self.dao.getAllVoti()
+        allEsami = self.dao.getAllVoti() #dammi tutti gli esami che sono nel database
         for e in allEsami:
             self.append(e)
 

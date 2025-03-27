@@ -3,12 +3,12 @@ import mysql.connector
 
 class DBConnect:
 
-    @classmethod
+    @classmethod #la classe è unica
     def getConnection(self):
         try:
             cnx = mysql.connector.connect(
                 user = "root",
-                password = "rootroot",
+                password = "colella",
                 host = "127.0.0.1",
                 database = "libretto")
             return cnx

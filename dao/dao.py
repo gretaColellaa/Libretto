@@ -1,17 +1,17 @@
-import mysql.connector
+
 
 from dao.dbConnect import DBConnect
 from voto.voto import Voto
 
 
-class LibrettoDAO:
+class LibrettoDAO:  #mi creo una classe del database
     # def __init__(self):
     #     self.dbConnect = DBConnect()
 
     def getAllVoti(self):
         # cnx = mysql.connector.connect(
         #     user = "root",
-        #     password = "rootroot",
+        #     password = "colella",
         #     host = "127.0.0.1",
         #     database = "libretto")
         cnx = DBConnect.getConnection()
@@ -55,7 +55,7 @@ class LibrettoDAO:
         cnx.close()
         return
 
-    def hasVoto(self, voto: Voto):
+    def hasVoto(self, voto: Voto): #verifico che ho già preso il voto
         # cnx = mysql.connector.connect(
         #     user = "root",
         #     password = "rootroot",
